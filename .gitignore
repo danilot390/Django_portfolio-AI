@@ -1,0 +1,48 @@
+# Python
+*.py[cod]
+*$py.class
+**init**.py
+
+# V Env
+venv/
+.venv/
+env/
+
+# Env Vars
+.env
+.env.*
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Static 
+staticfiles/
+media/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build/Packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+logs/
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
