@@ -13,6 +13,12 @@ The architecture is built to scale into AI-powered features including chatbots, 
 
 ## Setup & Installation
 
+### Clone the repository
+```bash
+git clone https://github.com/danilot390/Django_portfolio-AI.git
+cd Django_portfolio-AI
+```
+
 ### Create virtual environment (Optional)
 ```py
 python -m venv .venv

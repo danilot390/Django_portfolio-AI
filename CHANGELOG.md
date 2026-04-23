@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ---
 
 ## [0.1.0] - 23-04-2026
-([commit ]())
+([commit c66fb96](https://github.com/danilot390/Django_portfolio-AI/commit/c66fb96ebc3c795d8d62a6fbd1d4ccacdf57117d))
 
 ### Added
 - Initial Django project setup.
