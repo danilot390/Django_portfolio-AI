@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ---
 
 ## [0.2.0] - 10-05-2026
-([commit ]())
+([commit 8d949dd](https://github.com/danilot390/Django_portfolio-AI/commit/8d949dd07a002e6612e4541f7404b66264404aa5))
 
 ### Added
 - Frontend asset processing workflow.
