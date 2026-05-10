@@ -1,3 +1,55 @@
 from django.contrib import admin
+from .models import (
+    Person, Profile, Education,
+    ExpertiseGroup, Skill)
 
-# Register your models here.
+class EducationInline(admin.TabularInline):
+    model = Education
+    extra = 1
+
+class SkillInline(admin.TabularInline):
+    model = Skill
+    extra = 1
+class ExpertiseInline(admin.TabularInline):
+    model = ExpertiseGroup
+    extra = 0
+    show_change_link = True
+
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    extra = 0
+    max_num = 1
+    can_delete = False
+    show_change_link = True
+
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'is_me')
+    search_fields = ('name', 'email')
+    list_filter = ('is_me',)
+    ordering = ('name',)
+    inlines = [ProfileInline]
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('person', 'header')
+    search_fields = ('person__name', 'header')
+    inlines = [EducationInline, ExpertiseInline]
+
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('degree', 'institution', 'graduation')
+    search_fields = ('degree', 'institution')
+    ordering = ('-graduation',)
+
+@admin.register(ExpertiseGroup)
+class ExpertiseGroupAdmin(admin.ModelAdmin):
+    list_display = ('group_name', 'profile')
+    search_fields = ('group_name',)
+    inlines = [SkillInline]
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('name', 'expertise')
+    search_fields = ('name',)
+    ordering = ('name',)

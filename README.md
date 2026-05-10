@@ -11,6 +11,34 @@ The architecture is built to scale into AI-powered features including chatbots, 
 - Environment: Python(venv), python-decouple
 - Deployment (planned): Gunicorn, WhiteNoise
 
+## Project Structure
+```text
+Django_portfolio-AI/
+│
+├── apps/
+│   ├── core/
+│   └── projects/
+├── requirements/
+├── config/
+│
+├── static/
+├── templates/
+│
+├── .env
+├── .gitignore
+|
+├── README.md
+├── CHANGELOG.md
+├── LICENSE
+|
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+|
+└── manage.py
+```
+
 ## Setup & Installation
 
 ### Clone the repository
@@ -23,7 +51,7 @@ cd Django_portfolio-AI
 ```py
 python -m venv .venv
 ```
-Activate it:
+Activate environment:
 * macOS/Linux
 ```bash
 source .venv/bin/activate
@@ -33,7 +61,7 @@ source .venv/bin/activate
 .venv\Scripts\activate
 ```
 
-### Install dependencies
+### Install Python dependencies
 ```bash 
 pip install -r requirements/base.txt
 ```
@@ -50,6 +78,11 @@ These are required *only when deploying the application to production*.
 pip install -r requirements/prod.txt
 ```
 
+### Install Frontend dependencies
+```bash
+npm install
+```
+
 ### Environment variables
 Create a .env file inthe root directory:
 ```env
@@ -59,10 +92,23 @@ DATABASE_URL=postgres://user:passwrod@localhost:5432/db_name
 ```
 ### Apply migrations 
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 ```
+
 ### Run development server
 ```bash
 python manage.py runserver
 ```
 Access the app at: `http://127.0.0.1:8000/`
+
+### Tailwind CSS Development
+Watch Tailwind changes
+```bash 
+npm run dev
+```
+Build production CSS
+```bash
+npm run build
+```
+

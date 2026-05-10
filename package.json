@@ -1,0 +1,39 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^3.4.19"
+  },
+  "name": "ai_danilo",
+  "version": "1.0.0",
+  "description": "## Overview This project is a modular, Django-based personal website designed to reflect professional background, and showcase AI, Machine Learning and Analityics projects.  The architecture is built to scale into AI-powered features including chatbots, data tools, and ML model deployment.",
+  "main": "index.js",
+  "dependencies": {
+    "baseline-browser-mapping": "^2.10.21",
+    "browserslist": "^4.28.2",
+    "caniuse-lite": "^1.0.30001790",
+    "electron-to-chromium": "^1.5.344",
+    "escalade": "^3.2.0",
+    "fraction.js": "^5.3.4",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.38",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilot390/Django_portfolio-AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilot390/Django_portfolio-AI/issues"
+  },
+  "homepage": "https://github.com/danilot390/Django_portfolio-AI#readme"
+}

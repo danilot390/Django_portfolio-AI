@@ -1,7 +1,10 @@
 # Python
+__pycache__/
 *.py[cod]
 *$py.class
 **init**.py
+.pytest_cache/
+.mypy_cache/
 
 # V Env
 venv/
@@ -46,3 +49,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Tailwind
+dist/
+.cache/
