@@ -1,0 +1,227 @@
+slug: "green_ai_fraud_detection"
+defs:
+  title: "Green-AI Fraud Detection System"
+  order: 3
+  description: |
+    A novel hybrid Deep Learning project to combat financial fraud. It combines spiking neural networks (SNNs) for ultra-efficient initial pattern detection with a Multi-Layer Perceptron and stacking meta-learner XGBoost, and incorporates Explainable AI (XAI) techniques. This approach delivers reductions in energy consumption, while maintaining high accuracy and providing interpretable results.
+  short_description: "This project proposes a novel neuromorphic-inspired hybrid fraud detection framework (SNN+MLP-XGBoost) that integrates Green AI metrics and explainability mechanisms, supported by empirical evidence demonstrating improved sustainability with competitive predictive performance."
+  is_featured: true
+  is_published: false
+  github_url: "https://github.com/danilot390/Green-Ai-Fraud-Detection"
+  complexity: 7
+tags:
+  - "ai"
+  - "ml"
+  - "snn"
+  - "cnn"
+  - "xgboost"
+  - "green-ai"
+  - "xai"
+techs:
+  - "python"
+  - "pytorch"
+  - "sklearn"
+  - "xgboost"
+  - "lime"
+  - "codecarbon"
+  - "snntorch"
+  - "spikingjelly"
+highlights:
+  - title: "Energy Efficient Hybrid Fraud Detection"
+    bullet_points:
+      - "Improved detection performance through complementary model strengths"
+      - "Reduced computational overhead via efficient model components"
+      - "Balanced predictive performance with energy efficiency (Green AI principles)"
+    impact: "High Accuracy with reduced energy consumption."
+    categories:
+      - "architecture"
+      - "efficiency"
+  - title: "Performance Improvement via Hybrid Approach"
+    bullet_points:
+      - "Improved classification performance over individual models"
+      - "Enhanced robustness to class imbalance (Critical in fraud detection)."
+      - "Captured temporal dynamics (SNNs) and static relationships (MLPs/XGBoost) in data."
+      - "Reduced false positives and false negatives via meta-learning."
+    impact: "More reliable fraud detection in imbalanced datasets."
+    categories:
+      - "performance"
+      - "efficiency"
+  - title: "Scalable Production-Ready ML System"
+    bullet_points:
+      - "End-to-end ML pipeline from data processing to deployment."
+      - "Modular architecture supporting independent model updates."
+      - "Supports explainability, monitoring, drift detection, and retraining."
+      - "High scalability and extensibility."
+    impact: "Follows the best practices for production-ready ML systems."
+    categories:
+      - "deployment"
+evals:
+  - name: "Performance Evaluation"
+    description: "The results indicate that the proposed Green Hybrid Model achieves the strongest overall balance between precision and recall, yielding the highest F1-Score, F2-Score, and PR-AUC among all evaluated models. This demonstrates that combining temporal modelling with static feature learning improves fraud detection effectiveness compared with other architectures."
+    evaluation_date: "2025-12-07"
+    dataset:
+      - "ccfd-ulb"
+    tests:
+      - name: "MLP"
+        value: 1
+        metrics:
+          - name: "Recall"
+            value: 0.8108
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.8242
+            unit: ""
+          - name: "F1-Score"
+            value: 0.7317
+            unit: ""
+          - name: "F2-Score"
+            value: 0.7772
+            unit: ""
+      - name: "XGBoost/MLP/BiLSTM"
+        value: 2
+        metrics:
+          - name: "Recall"
+            value: 0.8082
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.7819
+            unit: ""
+          - name: "F1-Score"
+            value: 0.8082
+            unit: ""
+          - name: "F2-Score"
+            value: 0.8016
+            unit: ""
+      - name: "Hybrid Green"
+        value: 3
+        metrics:
+          - name: "Recall"
+            value: 0.8108
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.8382
+            unit: ""
+          - name: "F1-Score"
+            value: 0.8633
+            unit: ""
+          - name: "F2-Score"
+            value: 0.8310
+            unit: ""
+
+  - name: "Green AI Evaluation"
+    description: "The outcomes reflect that while MLP models are the most computationally lightweight, the proposed model achieves a favourable balance between efficiency and predictive power. The sustainability results show that model complexity correlates with environmental cost."
+    evaluation_date: "2025-12-07"
+    dataset:
+      - "ccfd-ulb"
+    tests:
+      - name: "MLP"
+        value: 1
+        metrics:
+          - name: "Infer. Latency"
+            value: 0.1847
+            unit: "MS"
+          - name: "Flops"
+            value: 0.0000
+            unit: "GFlops"
+          - name: "Size"
+            value: 0.1846
+            unit: "MB"
+          - name: "Energy"
+            value: 0.0010
+            unit: "kWh"
+      - name: "XGBoost/MLP/BiLSTM"
+        value: 2
+        metrics:
+          - name: "Infer. Latency"
+            value: 0.9993
+            unit: "MS"
+          - name: "Flops"
+            value: 0.8194
+            unit: "GFlops"
+          - name: "Size"
+            value: 0.8082
+            unit: "MB"
+          - name: "Energy"
+            value: 0.0024
+            unit: "kWh"
+      - name: "Hybrid Green"
+        value: 3
+        metrics:
+          - name: "Infer. Latency"
+            value: 0.9996
+            unit: "MS"
+          - name: "Flops"
+            value: 0.9231
+            unit: "GFlops"
+          - name: "Size"
+            value: 0.8101
+            unit: "MB"
+          - name: "Energy"
+            value: 0.0017
+            unit: "kWh"
+
+  - name: "Ileberi & Sun's Model"
+    description: "By mimicking the Ileberi & Sun's models and comparing the results on the same data splits, the differences between performance and effectiveness are notorious, inclining heavily toward the proposed model. This reflects the advantages of combining SNNs and MLPs for fraud detection systems."
+    evaluation_date: "2025-12-27"
+    dataset:
+      - "ccfd-ulb"
+    tests:
+      - name: "I&S Model-Baseline"
+        value: 1
+        metrics:
+          - name: "Recall"
+            value: 0.7973
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.4078
+            unit: ""
+          - name: "F1-Score"
+            value: 0.5990
+            unit: ""
+          - name: "F2-Score"
+            value: 0.7041
+            unit: ""
+          - name: "Latency"
+            value: 22.7381
+            unit: "MS"
+      - name: "I&S Model-Tuned"
+        value: 2
+        metrics:
+          - name: "Recall"
+            value: 0.8378
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.4651
+            unit: ""
+          - name: "F1-Score"
+            value: 0.6596
+            unit: ""
+          - name: "F2-Score"
+            value: 0.7561
+            unit: ""
+          - name: "Latency"
+            value: 17.5324
+            unit: "MS"
+      - name: "Hybrid Green"
+        value: 3
+        metrics:
+          - name: "Recall"
+            value: 0.8108
+            unit: ""
+          - name: "PR-AUC"
+            value: 0.8382
+            unit: ""
+          - name: "F1-Score"
+            value: 0.8633
+            unit: ""
+          - name: "F2-Score"
+            value: 0.8310
+            unit: ""
+          - name: "Latency"
+            value: 0.9996
+            unit: "MS"
+contributors:
+  - email: "danilot390@gmail.com"
+    role: "Lead Research"
+    contribution: "Project design, experimentation and implementation."
+    order: 1

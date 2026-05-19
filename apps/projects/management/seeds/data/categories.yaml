@@ -1,0 +1,11 @@
+categories:
+  - name: "Architecture"
+    slug: "architecture"
+  - name: "Performance"
+    slug: "performance"
+  - name: "Efficiency"
+    slug: "efficiency"
+  - name: "Deployment"
+    slug: "deployment"
+  - name: "Engineering"
+    slug: "engineering"

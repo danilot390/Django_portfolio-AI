@@ -1,0 +1,46 @@
+slug: "credit_card_default_prediction"
+defs:
+  title: "Credit Card Default Prediction"
+  order: 7
+  description: |
+    This project is a binary classification system built to predict whether a credit card holder will default on their next payment. Using the UCI Taiwanese credit dataset, it follows the CRISP-DM workflow to go from raw data exploration to a deployed model.
+    The pipeline includes feature engineering, model comparison among Logistic Regression, Random Forest, and XGBoost modules, and focuses not just on accuracy, but furthermore, optimizing Recall and F1-Score, considering those more important metrics in fraud detection.
+  short_description: "The project develops a Machine Learning system to predict the likelihood of credit card default, analyzes and explores the dataset following the CRISP-DM, and evaluates different models to identify risk customers based on demographics and historical payment windows."
+  is_featured: false
+  is_published: false
+  github_url: "https://github.com/danilot390/financial-risk-ml"
+  complexity: 3
+tags:
+  - "ml"
+  - "xgboost"
+  - "ensemble_learning"
+  - "linear_models"
+techs:
+  - "python"
+  - "sklearn"
+  - "xgboost"
+highlights:
+  - title: "Exploratory Data Analysis"
+    bullet_points:
+      - "Performed a deep dive into the dataset to find real patterns."
+      - "Visualized key trends using heatmaps and charts to show how financial history impacts the risk of default."
+    impact: "Better and deeper understanding of the dataset, highlighting trends through graphs."
+    categories:
+      - "performance"
+  - title: "Model Comparison"
+    bullet_points:
+      - "Includes three different approaches—Logistic Regression, Random Forest, and XGBoost—to explore which one works best."
+      - "Focused on testing how different features and hyperparameter tweaks change the accuracy of the models."
+    impact: "Fair comparison between models to understand the better performance considering not only accuracy but also ROC-AUC and Gini coefficient."
+    categories:
+      - "performance"
+evals: []
+contributors:
+  - email: "danilot390@gmail.com"
+    role: "Collaborative Risk Study"
+    contribution: "Project design, experimentation and implementation."
+    order: 1
+  - email: "parth@example.com"
+    role: "Collaborative Risk Study"
+    contribution: "Project design, experimentation and implementation."
+    order: 2

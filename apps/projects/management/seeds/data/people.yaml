@@ -1,0 +1,33 @@
+me:
+  name : "Danilo Angel Tito Rodriguez"
+  email : "danilot390@gmail.com"
+  phone_number: "+353831780104"
+  social_links:
+    - platform : 'linkedin'
+      url : "https://www.linkedin.com/in/danilo-tito-7313931a7"
+      order : 1
+    - platform : 'github'
+      url : "https://github.com/danilot390"
+      order : 2
+
+  
+people:
+  - name: "Jose Manuel Lopez Garcia"
+    email: "jose_manu@fake.com"
+    social_links:
+    - platform : 'linkedin'
+      url : "https://www.linkedin.com/in/jose-manuel-lopez7"
+      order : 1
+    - platform : 'github'
+      url : "https://github.com/JoseManuelLG"
+      order : 2
+  - name: "Parth Pandya"
+    email: "parth@example.com"
+    social_links:
+    - platform : 'linkedin'
+      url : "https://www.linkedin.com/in/parthpandya-/"
+      order : 1
+    - platform : 'github'
+      url : "https://github.com/parthInAI"
+      order : 2
+

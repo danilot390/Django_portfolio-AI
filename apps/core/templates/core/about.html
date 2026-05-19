@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}About | {{ profile.person.name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- ABOUT ME -->
+    <section class="py-16 mt-12 text-center">
+        <div class="mb-6">
+            <span class="text-md uppercase tracking-wider text-gray-500 font-semibold">
+                About Me<br>{{ profile.person }}
+            </span>
+            <h2 class="text-xl md:text-4xl mb-6">
+                {{ profile.about_title }}
+            </h2>
+        </div>
+        
+        <div class="max-w-4xl max-auto">
+            <p class="text-lg text-gray-400 text-justify leading-relaxed whitespace-pre-line">
+                {{ profile.about }}
+            </p>
+        </div>
+    </section>
+
+    <!-- FOCUS AREAS -->
+    {% if focus_areas %}
+    <section class="mt-10 ">
+        <div class="space-y-12">
+
+            {% for section in focus_areas %}
+            <article>
+                <h2 class="text-2xl font-semibold mb-4">
+                    {{ section.title }}
+                </h2>
+
+                <p class="text-gray-400 text-justify leading-relaxed whitespace-pre-line">
+                    {{ section.content }}
+                </p>
+            </article>
+            {% endfor %}
+
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- CORE EXPERTISE  -->
+    <section class="mt-10">
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Core Expertise</h2>
+            <p class="text-gray-500 mt-2">
+                Technologies and domains I work with most frequently.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            {% for expertise in focus_expertise_groups %}
+            <div class="p-6 bg-gray-900 rounded-xl">
+                <h3 class="text-lg font-semibold mb-4">{{ expertise.group_name }}</h3>
+                {% if expertise.focus_skills.all %}
+                <ul class="space-y-2">
+                    {% for skill in expertise.focus_skills.all %}
+                    <li class="flex items-center justify-between text-gray-400">
+                        <span>{{ skill.name }}</span>
+                        {% if skill.level %}
+                        <span class="text-sm text-gray-500">
+                            {{ skill.level }}/5
+                        </span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- OPEN TO -->
+    {% if open_to %}
+    <section class="mt-10 mb-8">
+        <h2 class="text-2xl md:text-3xl font-semibold mb-6">{{ open_to.title }}</h2>
+        <p class='text-gray-400 leading-relaxed text-justify'>
+            {{ open_to.content }}
+        </p>
+    </section>
+    {% endif %}
+
+    <!-- INTEREST -->
+    <section class='mt-10'>
+        <h2 class="text-2xl md:text-3xl font-semibold mb-6">Interests</h2>
+
+        <div class="flex flex-wrap gap-3">
+            {% for interest in profile.interests.all %}
+            <span class="px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-gray-300 text-sm">
+                {{ interest.name }}
+            </span>
+            {% endfor %}
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

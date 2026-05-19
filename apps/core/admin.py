@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import (
     Person, Profile, Education,
-    ExpertiseGroup, Skill)
+    ExpertiseGroup, Skill, SocialLink,
+    AboutSection, Interest,
+    )
 
 class EducationInline(admin.TabularInline):
     model = Education
@@ -14,6 +16,10 @@ class ExpertiseInline(admin.TabularInline):
     model = ExpertiseGroup
     extra = 0
     show_change_link = True
+class SocialLinkInLine(admin.TabularInline):
+    model = SocialLink
+    extra = 1
+    show_change_link = True
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -22,19 +28,28 @@ class ProfileInline(admin.StackedInline):
     can_delete = False
     show_change_link = True
 
+class AboutSectionInline(admin.TabularInline):
+    model = AboutSection
+    extra = 0
+
+class InterestInline(admin.TabularInline):
+    model = Interest
+    min_num = 2
+    extra = 0
+
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'is_me')
     search_fields = ('name', 'email')
     list_filter = ('is_me',)
     ordering = ('name',)
-    inlines = [ProfileInline]
+    inlines = [ProfileInline, SocialLinkInLine]
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('person', 'header')
     search_fields = ('person__name', 'header')
-    inlines = [EducationInline, ExpertiseInline]
+    inlines = [EducationInline, ExpertiseInline, AboutSectionInline, InterestInline]
 
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):

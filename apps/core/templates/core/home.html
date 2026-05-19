@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Home | Danilo Angel Tito Rodriguez{% endblock %}
+{% block title %}Home | {{ profile.person.name }}{% endblock %}
 
 {% block content %}
 
@@ -9,43 +9,21 @@
     <h1 class="text-3xl md:text-4xl font-bold">
         {{ profile.person.name }}
     </h1>
-    <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+    <p class="text-gray-400 mt-3 text-lg max-w-2xl mx-auto">
         {{ profile.header }}
     </p>
 </section>
 
-<!-- ABOUT ME -->
+<!-- SUMMARY -->
 <section class="py-10 md:py-16 px-6">
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto text-justify hyphens-auto leading-relaxed">
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed text-justify whitespace-pre-line">
         {{ profile.summary }}
     </p>
-    <!--p class="text-gray-400 text-lg max-w-2xl mx-auto text-justify hyphens-auto leading-relaxed">
-        I am a mathematics enthusiast with a degree in <span class="text-white font-medium">Software Engineering</span>, 
-        currently transitioning into <span class="text-white font-medium">Artificial Intelligence</span>
-        through an MSc in AI in Ireland. I bring over four years of experience, I've built real-world web 
-        systems for government institutions, universities, and private clients, 
-        focusing on delivering scalable and reliable solutions.
-    </p>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto text-justify hyphens-auto leading-relaxed">
-        My work combines software engineering expertise with AI, where I am building 
-        experience through projects involving end-to-end pipelines, from data preprocessing and
-        model development to basic deployment and monitoring, following MLOps principles and engineering best practices.
-    </p>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto text-justify hyphens-auto leading-relaxed">   
-        I have hands-on experience with <span class="text-white font-medium"> TensorFlow, PyTorch, and scikit-learn, and I'worked across Machine
-        Learning, Reinforcement Learning, and hybrid AI architectures </span>. I enjoy building modular, production-oriented
-        systems with strong focus on evaluation, monitoring,a nd reproducibility. 
-    </p>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto text-justify hyphens-auto leading-relaxed">
-        I am particularly interested in <span class="text-white font-medium">Green AI</span>,
-        applying techniques such as pruning, quantization, and energy tracking to build
-        efficient and sustainable AI systems.
-    </p-->
 </section>
 
 <!-- SKILLS -->
-<section class="mt-20">
-    <h1 class="text-2xl font-semibold mb-6">Core Expertise</h1>
+<section class="mt-15">
+    <h1 class="text-2xl font-semibold mb-6">Skills</h1>
     <div class="grid md:grid-cols-2 gap-8">
         {% for expertise in profile.expertise_groups.all %}
         <div class="p-6 bg-gray-900 rounded-xl">
@@ -75,7 +53,7 @@
     </div>
 </section>
 
-<!-- FEATURED PROJECTS -->
+<!-- PROJECTS & EXPERIENCE -->
 <section class="text-center mt-20">
     <div class="mt-8 space-x-4">
         <a href="{% url 'projects' %}" class="px-6 py-3 bg-white text-black rounded-lg font-semibold">

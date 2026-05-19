@@ -4,6 +4,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
+## [0.3.0] - 19-05-2026
+([commit ]())
+
+### Added
+- Add About section display personal information.
+- Add dynamic template for About page.
+- Add doomain models for the About section.
+- Add database migrations for portfolio model updates.
+- Add modular portfolio seeding architecture using structured YAML data.
+- Add `seed_portfolio` management command with reusable seed loader modules.
+
+### Changed 
+- Update admin configuration for portfolio-related models.
+- Refactor core models for improve extensiblity.
+- Restrutured homepage content layout.
+- Update routing and view logic for dynamic pages.
+- Refactor reusable person link components.
+- Improve project listing template structure
+- Update shared base template layout and navigation menu.
+- Update Python package requierments.
+
+### Removed
+- Remove deprecated `seed_projects` command and its `helper.py` file.
+
+---
 
 ## [0.2.0] - 10-05-2026
 ([commit 8d949dd](https://github.com/danilot390/Django_portfolio-AI/commit/8d949dd07a002e6612e4541f7404b66264404aa5))
@@ -30,6 +55,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ### Removed
 - Unnecessary `api\` application directory.
+
+---
 
 ## [0.1.0] - 23-04-2026
 ([commit c66fb96](https://github.com/danilot390/Django_portfolio-AI/commit/c66fb96ebc3c795d8d62a6fbd1d4ccacdf57117d))

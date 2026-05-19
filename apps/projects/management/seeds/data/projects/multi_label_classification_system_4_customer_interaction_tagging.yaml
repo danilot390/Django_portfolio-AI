@@ -1,0 +1,52 @@
+
+slug: "multi_label_classification_system_4_customer_interaction_tagging"
+defs:
+  title: "Multi-Label Classification System for Customer Interaction Tagging" 
+  order: 5
+  description: |
+    This project aims to design, implement, and evaluate architectures for real-world multi-label classification tasks through a Chained Multi-Output architecture. Evaluation includes label accuracy per class, F1-Score, recall, and precision per full sequence correct.
+    The system transitions from an existing single-label pipeline to a more complex multi-label architecture that captures label dependencies.
+  short_description: "The goal of this project simulates the role of an AI engineering team enhancing a SaaS product that classifies customer messages into multiple interdependent categories including intent, tone, and resolution type."
+  is_featured: false
+  is_published: false
+  github_url: "https://github.com/danilot390/Green-Ai-Fraud-Detection"
+  complexity: 5
+tags:
+  - "ai"
+  - "ml"
+  - "multi_label_classification"
+  - "multi_output_classification"
+  - "nlp"
+  - "classifier_chains"
+techs:
+  - "python"
+  - "sklearn"
+highlights:
+  - title: "Real-World Simulation"
+    bullet_points:
+      - "Designed a classification system for a simulated SaaS environment."
+      - "Engineered a workflow to process unstructured customer messages into structured, actionable data."
+      - "Integrated three distinct classification layers: Intent, Tone & Resolution Type."
+    impact: "Replaced traditional, rigid single-label systems with a flexible architecture that understands the nuance of human communication."
+    categories:
+      - "architecture"
+      - "engineering"
+  - title: "Chained Multi-Output Architecture"
+    bullet_points:
+      - "Implemented Classifier Chains to model inter-label dependencies."
+      - "Developed a sequential training pipeline where each model output enhances the context for the next stage."
+      - "Utilized NLP preprocessing to clean and vectorize diverse customer interaction data."
+    impact: "Increased prediction accuracy for downstream tasks by ensuring the model 'remembers' the context of previous classifications."
+    categories:
+      - "efficiency"
+      - "deployment"
+evals: []
+contributors:
+  - email: "danilot390@gmail.com"
+    role: "Collaborative Researching"
+    contribution: "Project design, experimentation and implementation."
+    order: 1
+  - email: "jose_manu@fake.com"
+    role: "Collaborative Researching"
+    contribution: "Project design, experimentation and implementation."
+    order: 2

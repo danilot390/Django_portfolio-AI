@@ -1,0 +1,9 @@
+datasets:
+  - name: "Credit Card Fraud Detection"
+    slug: "ccfd-ulb"
+    author: "Machine Learning Group (ULB)"
+    description: "Credit card transactions dataset with highly imbalanced fraud classes."
+    source_url: "https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud"
+    num_rows: 284807
+    num_features: 31
+    

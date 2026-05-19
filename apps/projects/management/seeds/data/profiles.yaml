@@ -1,0 +1,121 @@
+profiles:
+  - header: "AI Engineer | Machine Learning | Backend Systems"
+    summary: |
+      I am a mathematics enthusiast with a degree in Software Engineering, currently transitioning into Artificial Intelligence through an MSc in AI in Ireland. I bring over four years of experience, having built real-world web systems for government institutions, universities, and private clients, focusing on delivering scalable and reliable solutions. 
+      
+      My work combines software engineering expertise with AI, where I am building experience through projects involving end-to-end pipelines, from data preprocessing and model development to basic deployment and monitoring, following MLOps principles and engineering best practices.
+      
+      I have hands-on experience with TensorFlow, PyTorch, and scikit-learn, and I've worked across Machine Learning, Reinforcement Learning, and hybrid AI architectures. I enjoy building modular, production-oriented systems with strong focus on evaluation, monitoring, and reproducibility.
+      
+      I am particularly interested in Green AI, applying techniques such as pruning, quantization, and energy tracking to build efficient and sustainable AI systems.
+    about_title: 'Backend Engineer transitioning into AI-driven systems and data-centric applications'
+    about: |
+      I am a Software Engineer with experince in backend development and enterprise web systems, working across both public institutions and academic environments.
+      My professional work has primarily focused on building and maintaining web applications using Django and Laravel, supported by relational database such as PostgreSQL and MySQL.
+      
+      Trough these roles, I have developed a strong understandig of how to design and deliver reliable systems under real-world constraints, including performance, maintainability, and structure data handling.
+      
+      Currently, I am expanding my focus toward applied artificial intelligence and data-driven system design as part of my postgraduate studies and personal projects.
+      This includes working with machine learning pipelines, data analysis workflows, and experimenting with models applied to structured and financial-type datasets.
+      
+      My interest lies in backend engineering roles where systems intersect with intelligent data processing, particularly in environments where data insights and predictive capabilities can enhance  decision-making. I am continuing to strengthen my expertise in scalable backend  architectures while processing into AI-focused engineering work.
+    active: true
+    education:
+      - degree: "MSc in Artificial Intelligence"
+        institution: "National College of Ireland"
+        graduation: "Expected Jan 2027"
+      - degree: "BSc in Software Engineering"
+        institution: "Universidad Autonoma Tomás Frías"
+        graduation: "2021"
+        span: "Honours"
+    skill_groups:
+      - group_name: "Machine Learning & AI"
+        focus: True
+        skills:
+          - name: "Supervised learning, feature engineering, model evaluation"
+            level: 4
+            focus: 1
+            order: 1
+          - name: "Reinforcement Learning (MDPs, Q-learning)"
+            level: 3
+            focus: 0
+            order: 2
+          - name: "Hybrid AI systems, Explainable AI (LIME)"
+            level: 4
+            focus: 1
+            order: 1
+          - name: "TensorFlow, PyTorch, scikit-learn"
+            level: 4
+            focus: 1
+            order: 1
+          - name: "Green AI: pruning, quantization, energy-aware pipelines"
+            level: 3
+            focus: 1
+            order: 2
+      - group_name: "Data Analytics"
+        skills:
+          - name: "Data preprocessing, EDA, and visualization"
+            level: 2
+            focus: 0
+            order: 0
+          - name: "Statistical analysis and hypothesis testing"
+            level: 2
+            focus: 0
+            order: 0
+          - name: "Pandas, NumPy, Matplotlib, and Seaborn"
+            level: 2
+            focus: 0
+            order: 0
+      - group_name: "Backend & Systems"
+        focus: True
+        skills:
+          - name: "Django, Flask, Laravel"
+            level: 4
+            focus: 1
+            order: 1
+          - name: "RESTful API design and development"
+            level: 3
+            focus: 1
+            order: 1
+          - name: "Node.js (JavaScript Runtime)"
+            level: 2
+            focus: 0
+            order: 2
+          - name: "Microservices Systems"
+            level: 3
+            focus: 1
+            order: 1
+      - group_name: "Databases & Tools"
+        skills:
+          - name: "PostgreSQL, MySQL, SQLite"
+            focus: 1
+            order: 1
+          - name: "Git, Docker, CI/CD Pipelines"
+            focus: 1
+            order: 1
+          - name: "MLflow, Energy Tracking Tools"
+            level: 2
+            focus: 1
+            order: 2
+    about_section :
+      - title : 'Current Focus'
+        content : |
+          My current work is centered around backend systems, applied artificial intelligence, data processing, andscalble application architecture.
+          
+          I am particulary interested in how intelligent systems can support better decision-making through reliabledata pipelines and machine learning.
+        order : 1
+      - title : 'Engineering Approach'
+        content : |
+          I value maintainable systems, clean backend architecture, structured data modelling, and practical engineering.
+          
+          My focus is on building systems that are reliable, understable, and designed with long-term scalability in mind.
+        order : 2
+      - title : 'Open to Backend and AI Engineering Opportunities'
+        content : |
+          I am currently continuing my transition into AI-focused engineering while strengthening my expertise in backendsystems and scalable software arcchitecture.
+        order : 5
+    interests:
+      - name: 'Motorcyle travel'
+        order: '3'
+
+

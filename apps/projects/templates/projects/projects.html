@@ -6,12 +6,9 @@
 
 <section class="mt-20">
   <div class="max-w-5xl mx-auto px-4">
-
     <h2 class="text-3xl font-bold mb-10">Projects</h2>
-
     <ul class="space-y-8">
-
-      
+ 
       {% for project in projects %}
       <li class="border-b border-gray-100 pb-8 last:border-0">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center">
@@ -77,40 +74,9 @@
         </div>
 
       </li>
-        
       {% endfor %}
 
-      <!-- Project Item -->
-      <li class="border-b pb-6">
-
-        <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-          <h3 class="text-xl font-semibold">
-            Financial Data Analytics Platform
-          </h3>
-
-          <a href="#" class="text-sm text-blue-600 hover:underline mt-2 md:mt-0">
-            View details →
-          </a>
-        </div>
-
-        <p class="text-gray-600 mt-2">
-          Django-based platform for financial data analysis, integrating machine
-          learning models for trend detection and decision support.
-        </p>
-
-        <div class="flex flex-wrap gap-2 mt-3 text-sm text-gray-700">
-          <span>#Django</span>
-          <span>#DataAnalytics</span>
-          <span>#MachineLearning</span>
-          <span>#CRISPDM</span>
-        </div>
-
-      </li>
-
-      <!-- Add more projects -->
-
     </ul>
-
   </div>
 </section>
 
