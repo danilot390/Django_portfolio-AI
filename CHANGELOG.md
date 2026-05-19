@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
 ## [0.3.0] - 19-05-2026
-([commit ]())
+([commit 7159d37](https://github.com/danilot390/Django_portfolio-AI/commit/7159d375f836d6ae72fd7f34eb9864f4387cff01))
 
 ### Added
 - Add About section display personal information.
