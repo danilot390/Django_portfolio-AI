@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
 ## [0.4.0] - 2026-05-28
-([commit ]())
+([commit dd9cce4](https://github.com/danilot390/Django_portfolio-AI/commit/dd9cce47d63f56bcb147b96076925309323e8f1c))
 
 ### Added
 - Implemented contact application.
