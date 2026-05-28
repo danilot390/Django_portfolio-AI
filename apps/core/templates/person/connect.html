@@ -1,0 +1,31 @@
+<div class="space-y-4">
+    <!-- LinkedIn Link -->
+    <div class="flex items-center font-medium"> 
+    <a href="{{ contact.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors" title="LinkedIn"> 
+        <svg width="20" height="20" class="w-5 h-5 flex-shrink-0" fill="blue" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <span class="ml-3 text-white">&nbsp; Connect on LinkedIn</span>
+    </a> 
+    </div> 
+
+    <!-- WhatsApp Link -->
+    <div class="flex items-center font-medium"> 
+    <a href="https://wa.me/{{ contact.phone_number }}" target="_blank" rel="noopener noreferrer" class="flex items-center text-green-600 hover:text-green-800 transition-colors" title="WhatsApp"> 
+        <svg width="20" height="20" class="w-5 h-5 flex-shrink-0" fill="green" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.973 0c3.178.001 6.165 1.24 8.407 3.486 2.242 2.246 3.479 5.236 3.477 8.414-.004 6.557-5.355 11.903-11.921 11.903-2.001-.001-3.971-.504-5.717-1.464L0 24zm6.586-3.469l.411.244c1.51.897 3.467 1.371 5.474 1.372 5.658 0 10.262-4.586 10.266-10.245.002-2.744-1.066-5.323-3.008-7.269C17.38 2.709 14.803 1.65 12.01 1.65c-5.666 0-10.274 4.587-10.278 10.247-.001 2.02.528 3.997 1.536 5.73l.267.464-1.011 3.693 3.774-.985zm11.415-4.913c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.2-.298.3-.496.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        </svg>
+        <span class="ml-3 text-white">&nbsp; Chat on WhatsApp</span>
+    </a> 
+    </div>
+
+    <!-- Phone Call Link -->
+    <div class="flex items-center font-medium"> 
+    <a href="tel:{{ contact.phone_number }}" class="flex items-center text-gray-700 hover:text-gray-900 transition-colors" title="Call Me"> 
+        <svg width="20" height="20" class="w-5 h-5 flex-shrink-0" fill="none" stroke="red" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        <span class="ml-3 text-white">&nbsp; Call me ({{ contact.phone_number }})</span>
+    </a>
+    </div>
+</div>

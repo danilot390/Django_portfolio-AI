@@ -4,7 +4,8 @@ module.exports = {
 
     "./apps/core/templates/**/*.html",
     "./apps/projects/templates/**/*.html",
-    "./apps/**/*.html",
+    "./apps/contact/templates/**/*.html",
+    "./apps/**/templates/**/*.html",
   ],
   theme: {
     extend: {},

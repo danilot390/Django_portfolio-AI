@@ -20,55 +20,93 @@ class Technology(NamedModel):
 class Category(NamedModel):
     pass
 
-class Project(models.Model):
-    title = models.CharField(max_length=200)
+class PortfolioBase(models.Model):
     slug = models.SlugField(unique=True)
-    complexity = models.IntegerField(default=1)
-
+    
     short_description = models.TextField()
     description = models.TextField(blank=True)
     highlights = models.TextField(blank=True)
 
+    image = models.ImageField(upload_to='projects/', blank=True)
+
     is_featured = models.BooleanField(default=False)
     is_published = models.BooleanField(default=False)
-    order = models.IntegerField(default=0)
 
-    github_url = models.URLField(blank=True)
-    report_url = models.URLField(blank=True)
-    demo_url = models.URLField(blank=True)
-    image = models.ImageField(upload_to='projects/', blank=True)
+    order = models.IntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    tags = models.ManyToManyField('Tag', blank=True, related_name='projects')
-    technologies = models.ManyToManyField('Technology', blank=True, related_name='projects')
+    tags = models.ManyToManyField('Tag', blank=True, related_name='%(class)ss')
+    technologies = models.ManyToManyField('Technology', blank=True, related_name='%(class)ss')
+
+    class Meta:
+        abstract = True
+
+class Experience(PortfolioBase):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='experiences')
+
+    company = models.CharField(max_length=100, blank=True)
+    company_country = models.CharField(max_length=100, blank=True)
+
+    comments = models.TextField(blank=True)
+    
+    role = models.CharField(max_length=100, blank=True)
+    
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+
+    is_current = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['is_current','-start_date', '-order']
+
+class Project(PortfolioBase):
+    title = models.CharField(max_length=200)
+
+    complexity = models.IntegerField(default=1)
+
+    github_url = models.URLField(blank=True)
+    report_url = models.URLField(blank=True)
+    demo_url = models.URLField(blank=True)
+
+    class Meta:
+        ordering = ['is_featured', '-order', '-created_at']
 
     def __str__(self):
         return self.title
-    
+
     def full_stars(self):
         return self.complexity // 2
 
     def has_half_star(self):
         return self.complexity % 2 != 0
     
-class ProjectHighlight(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_highlights')
-    
+class AbstractHighlight(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField(blank=True)
     text = models.TextField(blank=True)
 
-    impact = models.CharField(max_length=100, blank=True)
-    categories = models.ManyToManyField("Category", blank=True, related_name='highlights')
+    impact = models.CharField(max_length=200, blank=True)
+    categories = models.ManyToManyField("Category", blank=True, related_name='%(class)s')
 
     def bullet_points(self):
         return [line.strip() for line in self.summary.split('\n') if line.strip()]
+
+    class Meta:
+        abstract = True
     
+class ProjectHighlight(AbstractHighlight):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_highlights')
+
     def __str__(self):
-        return f'Highlight for {self.project.title}: {self.text[:50]}...'
-    
+        return f'Highlight for {self.project.title}: {self.summary[:50]}...'
+
+class ExperienceHighlight(AbstractHighlight):
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE, related_name='experience_highlights')
+
+    def __str__(self):
+        return f'Highlight for {self.experience.role}: {self.summary[:50]}...'
 class ProjectContributor(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='contributors')
     person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='contributions')

@@ -2,9 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-**init**.py
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 
 # V Env
 venv/
@@ -14,6 +14,7 @@ env/
 # Env Vars
 .env
 .env.*
+!.env.example
 
 # Django
 *.log
@@ -33,7 +34,7 @@ media/
 
 # OS Files
 .DS_Store
-Thumbs.db
+Thumbs.dbgit 
 
 # Build/Packaging
 build/

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- HEADER -->
+        <section class='mt-10'>
+
+            <span class="text-sm uppercase tracking-[0.2em] text-gray-500 font-semibold">
+                Contact
+            </span>
+
+            <h1 class="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+                Let’s Connect
+            </h1>
+
+            <p class="mt-6 text-lg text-gray-400 leading-relaxed max-w-xl">
+                Whether you are hiring, collaborating, or discussing backend systems,
+                AI-driven applications, or data-focused projects, feel free to reach out.
+            </p>
+
+        </section>
+
+
+        <!-- FORM -->
+        <section class="">
+
+            <!-- SUCCESS / ERROR MESSAGES -->
+            {% if messages %}
+                <div class="mb-6 space-y-4">
+
+                    {% for message in messages %}
+                    <div class="rounded-2xl border px-4 py-3 
+                        {% if message.tags == 'success' %}border-green-800 bg-green-900/20 text-green-300
+                        {% elif message.tags == 'warning' %}border-yellow-800 bg-yellow-900/20 text-yellow-300
+                        {% elif message.tags == 'error' %}border-red-800 bg-red-900/20 text-red-300{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+
+            <form method="post" class="space-y-6">
+
+                {% csrf_token %}
+
+                <!-- NON FIELD ERRORS -->
+                {% if form.non_field_errors %}
+                <div class="rounded-2xl border border-red-800 bg-red-900/20 px-4 py-3 text-red-300">
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+
+
+                <!-- NAME -->
+                <div>
+                    <label for="{{ form.name.id_for_label }}"
+                           class="block mb-2 text-sm font-medium text-gray-400">
+                        Name
+                    </label>
+
+                    {{ form.name }}
+
+                    {% if form.name.errors %}
+                    <p class="mt-2 text-sm text-red-400">
+                        {{ form.name.errors.0 }}
+                    </p>
+                    {% endif %}
+                </div>
+
+
+                <!-- EMAIL -->
+                <div>
+                    <label for="{{ form.email.id_for_label }}"
+                           class="block mb-2 text-sm font-medium text-gray-400">
+                        Email
+                    </label>
+
+                    {{ form.email }}
+
+                    {% if form.email.errors %}
+                    <p class="mt-2 text-sm text-red-400">
+                        {{ form.email.errors.0 }}
+                    </p>
+                    {% endif %}
+                </div>
+
+
+                <!-- SUBJECT -->
+                <div>
+                    <label for="{{ form.subject.id_for_label }}"
+                           class="block mb-2 text-sm font-medium text-gray-400">
+                        Subject
+                    </label>
+
+                    {{ form.subject }}
+
+                    {% if form.subject.errors %}
+                    <p class="mt-2 text-sm text-red-400">
+                        {{ form.subject.errors.0 }}
+                    </p>
+                    {% endif %}
+                </div>
+
+
+                <!-- MESSAGE -->
+                <div>
+                    <label for="{{ form.message.id_for_label }}"
+                           class="block mb-2 text-sm font-medium text-gray-400">
+                        Message
+                    </label>
+
+                    {{ form.message }}
+
+                    {% if form.message.errors %}
+                    <p class="mt-2 text-sm text-red-400">
+                        {{ form.message.errors.0 }}
+                    </p>
+                    {% endif %}
+                </div>
+
+
+                <!-- SUBMIT -->
+                <div class="pt-2">
+                    <button type="submit"
+                            class="w-full rounded-2xl bg-white text-black font-semibold py-3 px-6 transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white/20">
+                        Send Message
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- OTHER WAYS TO CONNECT -->
+        <div class="mt-20 space-y-6"> 
+            <div> 
+                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500"> 
+                Other Ways to Connect 
+                </span> 
+            </div> 
+            <hr class="border-gray-200">
+            
+            {% include 'person/connect.html' with contact=contact %}
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Profile
+from apps.core.models import Profile, Person
+from apps.projects.models import Experience
 
 def home(request):
     profile = Profile.objects.get(active=True)
@@ -7,6 +8,23 @@ def home(request):
         'profile':profile
     }
     return render(request, 'core/home.html', context)
+
+def experiences(request):
+    me = Person.objects.get(is_me=True)
+    experiences = me.experiences.all()
+
+    context = {
+        'experiences': experiences,
+    }
+    return render(request, 'core/experiences.html', context)
+
+def experience_detail(request, slug):
+    experience = Experience.objects.get(slug=slug)
+
+    context = {
+        'experience': experience,
+    }
+    return render(request, 'core/experience_detail.html', context)
 
 def about_view(request):
     profile = Profile.objects.get(active=True)

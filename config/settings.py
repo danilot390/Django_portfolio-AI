@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'apps.core.apps.CoreConfig',
     'apps.projects.apps.ProjectsConfig',
+    'apps.contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email settings with Resend
+
+RESEND_API_KEY = config('RESEND_API_KEY')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+CONTACT_RECEIVER_EMAIL = config('CONTACT_RECEIVER_EMAIL')

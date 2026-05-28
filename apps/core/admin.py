@@ -4,6 +4,11 @@ from .models import (
     ExpertiseGroup, Skill, SocialLink,
     AboutSection, Interest,
     )
+from apps.projects.models import Experience
+
+class ExperienceInLine(admin.TabularInline):
+    model = Experience
+    extra = 1
 
 class EducationInline(admin.TabularInline):
     model = Education
@@ -43,7 +48,7 @@ class PersonAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     list_filter = ('is_me',)
     ordering = ('name',)
-    inlines = [ProfileInline, SocialLinkInLine]
+    inlines = [ProfileInline, SocialLinkInLine, ExperienceInLine]
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):

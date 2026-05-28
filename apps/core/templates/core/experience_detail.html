@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}{{ experience.role }}{% endblock %}
+
+{% block content %}
+
+<section class="max-w-5xl mx-auto px-4 py-10">
+
+    <div class="mb-8">
+        <h1 class="text-3xl md:text-5xl font-bold">
+            {{ experience.role }}
+        </h1>
+
+        <span class=" text-gray-400 mt-2 block">
+            {{ experience.company }} &middot; {{ experience.start_date|date:"M Y" }} - {% if experience.is_current %}Present{% else %}{{ experience.end_date|date:"M Y" }}{% endif %}
+        </span>
+        
+        <div class="flex flex-wrap gap-2 mt-4">
+            {% for tag in experience.tags.all %}
+            <span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-medium rounded-md">#{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if experience.image %}
+    <div class="mb-8">
+        <img src="{{ experience.image.url }}" class="rounded-xl shadow-lg w-full">
+    </div>
+    {% endif %}
+
+    <div class="mb-10">
+        <h2 class="text-2xl font-semibold mb-3">Overview</h2>
+        <p class="text-gray-300 leading-relaxed">
+            {{ experience.short_description }}
+        </p>
+    </div>
+
+    <div class="mb-10">
+        <h2 class="text-2xl font-semibold mb-3">Technical Details</h2>
+        <p class="text-gray-300 leading-relaxed whitespace-pre-line">
+            {{ experience.description }}
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+            {% for tech in experience.technologies.all %}
+                <span class="bg-gray-800 text-sm px-3 py-1 rounded">
+                    {{ tech.name }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% if experience.experience_highlights.exists %}
+    <div class="mb-10">
+        <h2 class="text-2xl font-semibold mb-6">Key Highlights</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border border-gray-800 rounded-lg overflow-hidden">
+
+                <thead class="bg-gray-900">
+                    <tr>
+                        <th class="p-4 text-sm text-gray-400">Area</th>
+                        <th class="p-4 text-sm text-gray-400">Summary</th>
+                        <th class="p-4 text-sm text-gray-400">Impact</th>
+                    </tr> 
+                </thead>
+
+                <tbody>
+                    {% for highlight in experience.experience_highlights.all %}
+                    <tr class="border-t border-gray-800">
+
+                        <!-- Title -->
+                        <td class="p-4 font-semibold">
+                            {{ highlight.title }}
+                        </td>
+
+                        <!-- Bullet Summary -->
+                        <td class="p-4">
+                            <ul class="list-disc ml-5 space-y-1 text-gray-300">
+                                {% for point in highlight.bullet_points %}
+                                <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+
+                        <!-- Impact -->
+                        <td class="p-4 text-green-400 text-sm font-semibold">
+                            {{ highlight.impact }}
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if experience.comments %}
+    <div class="mt-5 p-3 bg-gray-50 rounded-lg">
+        <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Comments</p>
+        <p class="text-gray-700">{{experience.comments}}</p>
+    </div>
+    {% endif %}
+
+</section>
+
+{% endblock %}

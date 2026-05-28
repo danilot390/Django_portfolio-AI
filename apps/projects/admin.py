@@ -8,7 +8,9 @@ from .models import (
     Dataset,
     TestDB,
     EvaluationMetric,
+    Experience,
     ProjectHighlight,
+    ExperienceHighlight,
     EvaluationConfiguration
 )
 
@@ -18,30 +20,46 @@ class ProjectContributorInline(admin.TabularInline):
     autocomplete_fields = ['person']
     show_change_link = True
 
-class ProjectHighlightInline(admin.TabularInline):
-    model = ProjectHighlight
-    extra = 1
-    autocomplete_fields = ['project']
-
-
 class ProjectEvaluationInline(admin.TabularInline):
     model = ProjectEvaluation
     extra = 0
+    show_change_link = True
+
+class projectHighlightInline(admin.TabularInline):
+    model = ProjectHighlight
+    extra = 1
     show_change_link = True
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_featured', 'order', 'created_at', 'updated_at')
     search_fields = ('title', 'description', 'short_description')
-    list_filter = ('created_at', 'updated_at', 'tags', 'technologies', 'is_featured', 'is_published')
+    list_filter = ('created_at', 'updated_at', 'tags', 'technologies','project_highlights', 'is_featured', 'is_published')
 
-    inlines = [ProjectContributorInline, ProjectEvaluationInline, ProjectHighlightInline]
+    inlines = [ProjectContributorInline, ProjectEvaluationInline, projectHighlightInline]
 
     prepopulated_fields = {'slug': ('title',)}
 
     autocomplete_fields = ['tags', 'technologies']
 
-    ordering = ('order', '-created_at')
+    ordering = ('-order', '-created_at')
+
+class ExperienceHighlightInline(admin.TabularInline):
+    model = ExperienceHighlight
+    extra = 1
+    show_change_link = True
+
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ('person','role', 'is_featured', 'order', 'created_at', 'updated_at')
+    search_fields = ('role', 'description', 'short_description')
+    list_filter = ('created_at', 'updated_at', 'tags', 'technologies', 'is_featured', 'is_published')
+
+    inlines = [ExperienceHighlightInline]
+
+    prepopulated_fields = {'slug': ('role',)}
+
+    autocomplete_fields = ['tags', 'technologies']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -84,3 +102,15 @@ class TestDbAdmin(admin.ModelAdmin):
     list_display = ('project_evaluation', 'name', )
 
     inlines = [EvaluationMetricInline]
+
+@admin.register(ProjectHighlight)
+class ProjectHighlightAdmin(admin.ModelAdmin):
+    list_display = ('title', 'project')
+    search_fields = ('title', 'summary', 'text')
+    list_filter = ('project',)
+
+@admin.register(ExperienceHighlight)
+class ExperienceHighlightAdmin(admin.ModelAdmin):
+    list_display = ('title', 'experience')
+    search_fields = ('title', 'summary', 'text')
+    list_filter = ('experience',)
