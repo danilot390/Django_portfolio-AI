@@ -5,9 +5,9 @@ from django.contrib.auth import get_user_model
 def seed_admin(stdout=None):
     User = get_user_model()
 
-    username = config("ADMIN_USERNAME", cast=str)
-    email = config("ADMIN_EMAIL", cast=str)
-    password = config("ADMIN_PASSWORD", cast=str)
+    username = config("DJANGO_SUPERUSER_USERNAME", cast=str)
+    email = config("DJANGO_SUPERUSER_EMAIL", cast=str)
+    password = config("DJANGO_SUPERUSER_PASSWORD", cast=str)
 
     if not User.objects.filter(username=username).exists():
         User.objects.create_superuser(

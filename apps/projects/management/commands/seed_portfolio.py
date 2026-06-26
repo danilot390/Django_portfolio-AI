@@ -9,6 +9,7 @@ from apps.projects.management.seeds.taxonomy import (
 )
 from apps.projects.management.seeds.datasets import seed_datasets
 from apps.projects.management.seeds.projects import seed_projects
+from apps.projects.management.seeds.experiences import seed_experiences
 from apps.projects.management.seeds.profiles import seed_profile
 from apps.projects.management.seeds.admin import seed_admin
 
@@ -48,6 +49,10 @@ class Command(BaseCommand):
                 # projects
                 seed_projects()
                 self.stdout.write('Projects directory seeding complete...')
+
+                # experiences
+                seed_experiences()
+                self.stdout.write('Experiences seeding complete...')
 
             self.stdout.write(
                 self.style.SUCCESS('All components successfully seeded to the DB.')

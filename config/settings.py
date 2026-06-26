@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+from decouple import config, Csv
 from django.apps import apps
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
 
@@ -43,10 +44,12 @@ INSTALLED_APPS = [
     'apps.core.apps.CoreConfig',
     'apps.projects.apps.ProjectsConfig',
     'apps.contact.apps.ContactConfig',
+    'apps.cv.apps.CvConfig',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,10 +83,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'default': dj_database_url.parse(
+        config('DATABASE_URL', default='postgresql://postgres:password@localhost:5432/portfolio_db'),
+        conn_max_age=600
+    )
 }
 
 
@@ -129,13 +136,43 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles" 
 
-# Default primary key field type
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+STATICFILES_STORAGES = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
+
+LOG_LEVEL = config(
+    "LOG_LEVEL",
+    default="INFO",
+)
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": LOG_LEVEL,
+    },
+}
+
+# Default primary key field type (Production and docker only)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email settings with Resend
-
 RESEND_API_KEY = config('RESEND_API_KEY')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 CONTACT_RECEIVER_EMAIL = config('CONTACT_RECEIVER_EMAIL')
+
+# PDF service settings
+PDF_SERVICE_URL = config(
+    'PDF_SERVICE_URL',
+    default='http://localhost:3001',
+)

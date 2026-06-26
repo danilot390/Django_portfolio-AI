@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<div class="max-w-[210mm] mx-auto">
+
+  <header class="mb-4 text-center ">
+    <h1 class="text-3xl font-bold">
+      {{ person.name }}
+    </h1>
+
+    <p class="text-lg text-gray-600">
+      {{ profile.header }}
+    </p>
+
+    <div class="mt-1 text-sm text-gray-600">
+        {{ person.email }}
+        {% if person.phone_number %} | {{ person.phone_number }} {% endif %}
+        {% if person.linkedin_url %} | {{ person.linkedin_url }} {% endif %}
+        {% if person.github_url %} | {{ person.github_url }} {% endif %}
+    </div>
+  </header>
+
+  {% include 'cv/summary.html' %}
+
+  {% include 'cv/education.html' %}
+
+  {% include 'cv/projects.html' %}
+
+  {% include 'cv/skills.html' %}
+
+  {% include 'cv/experiences.html' %}
+  
+  {% include 'cv/languages.html' %}
+
+  {% include 'cv/interests.html' %}
+
+
+  
+</div>
+
+</body>
+</html>

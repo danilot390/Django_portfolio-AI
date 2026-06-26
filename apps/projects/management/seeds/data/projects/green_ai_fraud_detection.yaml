@@ -10,11 +10,9 @@ defs:
   github_url: "https://github.com/danilot390/Green-Ai-Fraud-Detection"
   complexity: 7
 tags:
-  - "ai"
   - "ml"
   - "snn"
   - "cnn"
-  - "xgboost"
   - "green-ai"
   - "xai"
 techs:

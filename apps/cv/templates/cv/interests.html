@@ -1,0 +1,10 @@
+  <section class="mb-3">
+    <h2 class="text-xl font-semibold tracking-wide border-b ">
+      Interests
+    </h2>
+    <div class="pl-4 text-sm text-justify ">
+      {% for interest in profile.interests.all %}
+          {{ interest.name }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    </div>
+  </section>

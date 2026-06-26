@@ -1,0 +1,59 @@
+slug: uatf_web_developer
+email_person: danilot390@gmail.com
+defs:
+  short_description: |
+    Designed, developed and deployed a new web portal for student management and sholarship workflows. 
+    Improved backeend performance through tarageted database optimization and complete codebase refactor. Contributed to internal gestion of the scholarship program and initiated of the univertsity's broader digital transformation.
+  description: |
+    Responsible for the IT of the Univerisity's Welfare Department. Conducted a through analysis of the legacy monolithi architecture, which suffered from redundant code, data duplication, poor performance, scalibility issues, and undocumented and poor logic.
+
+    Designed and built a modular web system for student management and scholarship workflows using Laravel and PostgrSQL. Re-engineered the database structure and implemented clean coding best practices, including robust role-based access control (RBAC) and strict separation of concerns. This result in a significant improvement in system performance, maintainablity, and scalablity.
+
+    Managed internal scholarship operation, including appliaciont processing, workflows, and student communication. Trained evaluation comittees, and university staff on the new plataform, which led to a more efficient and transparent scholarship management process.
+  company: Universidad Autonoma ‘Tomas Frias’
+  company_country: Bolivia
+  role: Web Developer
+  start_date: 2019-01-01
+  end_date: 2021-12-31
+  is_current: False
+  is_featured: True
+  is_published: False
+  order: 3
+tags:
+  - web-development
+  - backend-engineering
+  - database-optimization
+  - legacy-refactoring
+  - edtech
+techs:
+  - laravel
+  - postgresql
+  - php
+highlights: 
+  - title: Legacy Monolithic re-architecture & Database Optimization
+    bullet_points:
+      - Analyzed a legacy monolithic system to elimanate code redundancy and data duplication.
+      - Refactored the codebase into modular architecture and re-engineered the PostgreSQL schema.
+    impact: Eliminated critical technical debt, drastically reduced backend response times, and established a scalable foundation for growing enrollment.
+    categories:
+      - maintainability
+      - scalability
+      - performance_efficiency
+  - title: Access Control and Governance Framework
+    bullet_points:
+      - Designed and integrated a robust Role-Based Access Control (RBAC) security framework.
+      - Implemented strict separation of concerns to enhance security and maintainability.
+    impact: Secured sensitive student data and established structured, multi-tier approval workflows for evaluation committees.
+    categories:
+      - security
+      - modularity
+      - reliability
+  - title: System Migration and Digital Transformation
+    bullet_points:
+      - Led the data migration from the the old system to the new Lavarel-based platform.
+      - Conduted technical training for university comittees and staff to use newly implemented digital workflow systems.
+    impact: Successfully modernized legacy architecture with zero data loss or system downtime during migration, and facilitated a smooth transition to the new platform.
+    categories:
+      - usability
+      - interoperatibility
+      - adaptablity

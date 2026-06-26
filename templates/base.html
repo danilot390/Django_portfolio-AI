@@ -1,47 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Portfolio{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Portfolio{% endblock %}</title>
 
     {% load static %}
     <link href="{% static 'css/output.css' %}" rel="stylesheet">
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 
-    {% block css %}
-    {% endblock %}
-        
+    {% block css %}{% endblock %}
 </head>
 
-<body class="bg-gray-950 text-gray-100 font-sans">
+<body class="bg-gray-950 text-gray-100 font-sans flex flex-col min-h-full">
 
-    <!-- NAV -->
-    <header class="flex justify-between items-center px-8 py-6 border-b border-gray-800">
-        <div class="text-xl font-bold">TRAD</div>
+    <!-- NAVIGATION -->
+    <header class="border-b border-gray-800">
+        <div class="max-w-5xl mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-xl font-bold tracking-tight hover:text-gray-300 transition-colors">TRAD</a>
+            
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
+                <a href="{% url 'home' %}" class="hover:text-white transition-colors">Home</a>
+                <a href="{% url 'projects' %}" class="hover:text-white transition-colors">Projects</a>
+                <a href="{% url 'experiences' %}" class="hover:text-white transition-colors">Experiences</a>
+                <a href="{% url 'about' %}" class="hover:text-white transition-colors">About</a>
+                <a href="{% url 'contact:contact' %}" class="hover:text-white transition-colors">Contact Me</a>
+            </nav>
 
-        <nav class="space-x-6 text-sm text-gray-300">
-            <a href="{% url 'home' %}" class="hover:text-white">Home</a>
-            <a href="{% url 'about' %}" class="hover:text-white">About</a>
-            <a href="{% url 'projects' %}" class="hover:text-white">Projects</a>
-            <a href="{% url 'experiences' %}" class="hover:text-white">Experiences</a>
-            <a href="{% url 'contact:contact' %}" class="hover:text-white">Contact Me</a>
-        </nav>
+            <a 
+                    href="{% url 'cv_download' %}" 
+                    class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold rounded bg-gray-800 hover:bg-gray-700 text-white border border-gray-700 hover:border-gray-600 transition-all shadow-sm"
+                >
+                    Download CV
+                </a>
+
+        </div>
     </header>
 
     <!-- CONTENT -->
-    <main class="max-w-5xl mx-auto px-6 py-16">
+    <main class="w-full max-w-5xl mx-auto px-6 py-16 flex-grow">
         {% block content %}{% endblock %}
     </main>
 
     <!-- FOOTER -->
-    
-    <footer class="text-center text-sm text-gray-500 py-10 border-t border-gray-800">
-        © {% now "Y" %} danilot390. Built with Django + Tailwind.
+    <footer class="border-t border-gray-800 bg-gray-950/50 mt-auto">
+        <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-sm text-gray-500">
+            <p>© {% now "Y" %} danilot390. Built with Django + Tailwind.</p>
+        </div>
     </footer>
-    
-    {% block js %}
-    {% endblock %}
-        
+
+    {% block js %}{% endblock %}
+
 </body>
 </html>

@@ -1,0 +1,59 @@
+slug: gadp_web_developer
+email_person: danilot390@gmail.com
+defs:
+  short_description: |
+    Designed, developed and implemeted a web-based mining royalties management system for the local government of Potosí, Bolivia, automating sales books, royalty calculations, and payment workflows. This system significantly improved operational efficiency, accuracy, and transparency in managing mining royalties.
+  description: |
+    Assigned to the Mining Department to analyze, design, and implement a web system focused on automating mining royalty operations and compliance tracking. Integrated digitized sales books into tje platform as primary proof of declaration data to drive the core royalty calculation engine.
+
+    Colloborated with miners, government officials, and financial departments to gather complex regulatory and tax requirements.
+
+    Developed the application using Django and PostgreSQL, engineering crtitical modules for cadastre, declaration verification, royalty processing, and payment managment to ensure accurate government revenue collection.
+  company: Gobierno Autónomo Departamental de Potosí
+  company_country: Bolivia
+  role: Web Developer
+  start_date: 2017-01-01
+  end_date: 2018-12-31
+  is_current: False
+  is_featured: True
+  is_published: False
+  order: 3
+tags:
+  - web-development
+  - backend-engineering
+  - database-optimization
+  - system-architecture
+  - financial-systems
+techs:
+  - django
+  - postgresql
+  - python
+highlights: 
+  - title: Automated Royalty Calculation Engine
+    bullet_points:
+      - Designed a calculation core matching complex Bolivian mining royalty regulations.
+      - Replaced slow manual validation processes with Djando-based automation, improving accuracy and efficiency.
+      - Eliminated and prevent mathematical errors in royalty calculations and municipal revenue collection.
+    impact: Secured precise financial data and accelerated processing of mining royalties, leading to improved government revenue collection and compliance.
+    categories:
+      - performance_efficiency
+      - reliability
+      - security
+  - title: Data Integration & Verification Architecture
+    bullet_points:
+      - Integrated digitized mining sales books as prymary data source for royalty calculations.
+      - Strucutured a robust data verification system  into standard proof declarations.
+      - Built strict automated verification workflows to flag discrepancies and ensure accurate royalty reporting.
+    impact: Digitalized and automated the mining royalty declaration process, improving data integrity and regulatory compliance.
+    categories:
+      - data_integrity
+      - reliability
+      - interoperability
+  - title: Cross-Functional Requirement Engineering 
+    bullet_points:
+      - Gathered compliance rules from miners and government officials to define system requirements.
+      - Mapped complex regulatory requirements into technical specifications for the development team.
+    impact: Built a system that met the needs  across the mining industry and government, ensuring high adoption and regulatory compliance.
+    categories:
+      - adaptability
+      - usability

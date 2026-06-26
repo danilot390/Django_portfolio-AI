@@ -32,7 +32,7 @@ def upsert_project(project_data):
     )
 
     seed_contributors(project, project_data)
-    seed_highlights(project, project_data)
+    seed_highlights(project, project_data.get('highlights', []))
     seed_evaluations(project, project_data)
 
     return project
@@ -52,7 +52,7 @@ def seed_contributors(project, project_data):
         )
 
 def seed_highlights(project, project_data):
-    for data in project_data.get('highlights', []):
+    for data in project_data:
         highlight, _ = ProjectHighlight.objects.update_or_create(
             project = project,
             title = data['title'],

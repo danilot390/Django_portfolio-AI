@@ -1,0 +1,19 @@
+<section class="">
+    <h2 class="text-xl font-semibold tracking-wide border-b ">
+        Technical Skills
+    </h2>
+
+    <div class="pl-4 grid grid-cols-2 gap-4 gap-y-1 text-justify text-sm">
+        {% for group in skills %}
+            <div>
+                <span class="font-semibold">
+                    {{ group.group_name }}:
+                </span>
+
+                {% for skill in group.skills.all %}
+                    {{ skill.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</section>

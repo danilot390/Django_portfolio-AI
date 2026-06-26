@@ -1,0 +1,45 @@
+  <section class="">
+    <h2 class="text-xl font-semibold tracking-wide border-b ">
+      Education
+    </h2>
+
+    {% for education in profile.educations.all %}
+      <article class="pl-4 mb-2 ">
+        <h3 class="font-semibold text-lg">
+          {{ education.degree }}
+        </h3>
+
+        <p class="text-gray-500">
+          {{ education.institution }} - {{ education.graduation }}
+        </p>
+
+        <div class="pl-4 grid grid-cols-2 gap-1 text-sm">
+        {% if education.educationmodule_set.all %}
+          <div>
+            <h4 class="font-semibold text-md">
+              Key Modules:
+            </h4>
+            <ul class="list-disc list-inside text-sm">
+              {% for area in education.educationmodule_set.all %}
+                <li>{{ area.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if education.educationfocusarea_set.all %}
+          <div >
+            <h4 class="font-semibold text-md">
+              Focus Areas:
+            </h4>
+            <ul class="list-disc list-inside text-sm">
+              {% for area in education.educationfocusarea_set.all %}
+                <li>{{ area.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>

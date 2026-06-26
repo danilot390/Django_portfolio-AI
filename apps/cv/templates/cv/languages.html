@@ -1,0 +1,16 @@
+<section class="">
+<h2 class="text-xl font-semibold tracking-wide border-b ">
+    Languages
+</h2>
+
+<ul class="pl-4 grid grid-cols-2 gap-1 text-sm">
+    {% for language in person.languages.all %}
+        <li>
+            <strong>{{ language.name }}</strong>
+            {% if language.proficiency %}
+                - {{ language.proficiency_label }}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+</section>

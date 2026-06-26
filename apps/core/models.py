@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
 class Person(models.Model):
     name = models.CharField(max_length=100)
@@ -59,6 +60,7 @@ class Profile(models.Model):
     about = models.TextField()
     
     active = models.BooleanField(default=True)
+    cv_slug = models.SlugField(max_length=100, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -127,7 +129,72 @@ class Education(models.Model):
         return f'{self.degree} - {self.institution}'
     
     class Meta:
-        ordering = ['graduation']
+        ordering = ['-graduation']
+
+class AbstractEdAreas(models.Model):
+    education = models.ForeignKey(Education, related_name='%(class)s_set', on_delete=models.CASCADE)
+    
+    name = models.CharField( max_length=150)
+    
+    order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        abstract = True
+        ordering = ['order', 'name']
+        
+
+class EducationModule(AbstractEdAreas):
+    class Meta:
+        verbose_name = 'Education Module'
+        verbose_name_plural = 'Education Modules'
+        constraints = [
+            models.UniqueConstraint(
+                fields=['education','name'],
+                name = 'unique_module_per_education'
+            )
+        ]
+
+
+class EducationFocusArea(AbstractEdAreas):
+    class Meta:
+        verbose_name = 'Focus Area'
+        verbose_name_plural = 'Focus Areas'
+        constraints = [
+            models.UniqueConstraint(
+                fields=['education','name'],
+                name = 'unique_focus_area_per_education'
+            )
+        ]
+
+class LanguageLevel(models.TextChoices):
+    NATIVE = "native", _("Native")
+    C1 = "c1", _("Fluent (C1)")
+    B2 = "b2", _("Professional Working Proficiency (B2)")
+    B1 = "b1", _("Intermediate (B1)")
+    A2 = "a2", _("Elementary (A2)")
+    A1 = "a1", _("Basic (A1)")
+
+class Language(models.Model):
+    person = models.ForeignKey(Person, related_name='languages', on_delete=models.CASCADE)
+    name = models.CharField( max_length=150)
+    proficiency = models.CharField(max_length=100, choices=LanguageLevel.choices, blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    @property
+    def proficiency_label(self):
+        return self.get_proficiency_display() if self.proficiency else None
+
+    class Meta:
+        ordering = ['order', 'name']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['person','name'],
+                name = 'unique_language_per_person'
+            )
+        ]
 
 class ExpertiseGroup(models.Model):
     profile = models.ForeignKey(Profile, related_name='expertise_groups', on_delete=models.CASCADE)

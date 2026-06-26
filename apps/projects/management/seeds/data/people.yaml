@@ -9,7 +9,16 @@ me:
     - platform : 'github'
       url : "https://github.com/danilot390"
       order : 2
-
+  languages:
+    - name : "English"
+      proficiency : "c1"
+      order : 1
+    - name : "Spanish"
+      proficiency : "native"
+      order : 2
+    - name: "Portuguese"
+      proficiency: "b1"
+      order: 3
   
 people:
   - name: "Jose Manuel Lopez Garcia"

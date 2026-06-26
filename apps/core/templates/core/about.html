@@ -62,11 +62,6 @@
                     {% for skill in expertise.focus_skills.all %}
                     <li class="flex items-center justify-between text-gray-400">
                         <span>{{ skill.name }}</span>
-                        {% if skill.level %}
-                        <span class="text-sm text-gray-500">
-                            {{ skill.level }}/5
-                        </span>
-                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>

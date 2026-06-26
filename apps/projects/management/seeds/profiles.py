@@ -1,6 +1,7 @@
 from apps.core.models import (
     Profile, Education, ExpertiseGroup,
-    Skill, AboutSection, Interest,
+    Skill, AboutSection, Interest, 
+    EducationModule, EducationFocusArea,
 )
 from .people import seed_me
 from apps.projects.management.seeds.utils import load_yaml_data
@@ -17,6 +18,7 @@ def seed_profile():
                 'header': profile.get('header'),
                 'summary': profile.get('summary'),
                 'active': profile.get('active', False),
+                'cv_slug': profile.get('cv_slug', None),
                 'about_title': profile.get('about_title'),
                 'about': profile.get('about'),
             }
@@ -24,11 +26,27 @@ def seed_profile():
 
         education_data = profile.get('education', [])
         for education in education_data:
-            Education.objects.update_or_create(
+            ed, _ =Education.objects.update_or_create(
                 profile = prof,
                 degree = education['degree'],
-                defaults = education,
+                institution = education['institution'],
+                graduation = education['graduation'],
             )
+            if 'modules' in education:
+                for module in education['modules']:
+                    EducationModule.objects.update_or_create(
+                        education = ed,
+                        name = module['name'],
+                        order = module['order'],
+                    )
+            
+            if 'focus_areas' in education:
+                for focus in education['focus_areas']:
+                    EducationFocusArea.objects.update_or_create(
+                        education = ed,
+                        name = focus['name'],
+                        order = focus['order'],
+                    )
 
         skills_data = profile.get('skill_groups', [])
         for group_data in skills_data:

@@ -12,7 +12,6 @@ defs:
   github_url: "https://github.com/danilot390/Green-Ai-Fraud-Detection"
   complexity: 5
 tags:
-  - "ai"
   - "ml"
   - "multi_label_classification"
   - "multi_output_classification"

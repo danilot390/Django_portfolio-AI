@@ -1,0 +1,46 @@
+<section class="">
+    <h2 class="text-lg font-semibold tracking-wide border-b ">
+      Experience
+    </h2>
+
+    {% for experience in experiences %}
+      <article class="pl-4 mb-2 ">
+        <h3 class="font-semibold">
+          {{ experience.role }}
+          {% if experience.summary_url %}
+          | Review <a href="{{ experience.summary_url }}" class="text-blue-600 hover:underline">
+              Summary
+            </a>
+          {% endif %}
+        </h3>
+
+        <p class="text-sm text-gray-500">
+          {{ experience.company }}, {{ experience.company_country }} |
+          {{ experience.start_date|date:"M Y" }}
+          -
+          {% if experience.end_date %}
+              {{ experience.end_date|date:"M Y" }}
+          {% else %}
+              Present
+          {% endif %}
+        </p>
+
+        <p class="text-sm text-gray-500">
+          <strong class="text-gray-600"> 
+            Domains:
+          </strong>
+          {{ experience.tags.all|join:", " }}
+        </p>
+
+        <p class="text-sm text-gray-500">
+          <strong class="text-gray-600"> 
+            Technologies:
+          </strong>
+          {{ experience.technologies.all|join:", " }}
+        </p>
+
+        {% include 'cv/highlight.html' with highlights=experience.experience_highlights.all %}
+
+      </article>
+    {% endfor %}
+  </section>

@@ -4,6 +4,53 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
+## [1.0.0] - 2026-06-24
+([commit ]())
+
+### Added
+- Implemented Docker Compose configuration and containerized deployment setup.
+- Created Docker support for the Django application.
+- Added Docker Compose configuration for multi-service deployment.
+- Integrated Django container entrypoint.
+- Added `.dockerignore`.
+- Added environment variable template (`.env.example`).
+- Implemented CV application for managing summary presentation.
+- Added printable CV templates with reusable sections including summary, skills, projects, professional experience, education, languages, interests, and highlights.
+- Integrated CV-specific viewsm routing, selectors and admin integration.
+- Introduced PDF client abstraction for comunication with the PDF generation.
+- Added dedicated PDF generation service for CV exports.
+- Integrated standalon Node.js PDF generation service.
+- Implemented PlayWright for server-side PDF rendering.
+- Added REST endpoint for PDF generation.
+- Integrated Docker image for the PDF service.
+- Created structured seed data for professional experiences including Freelancer, Web developer for Government Autonomous Department of Potosi, and Universidad Autonoma Tomas Frias.
+- Created experience seed datasets.
+- Generated Core and Projects database migrations.
+- Generated new Core migration supporting CV-related profile changes.
+- Generated new Project migration for updated experience and project models.
+
+### Changed 
+- Extended portfolio domain models.
+- Improved About page presentation.
+- Updated profile configuration for CV support.
+- Updated DJango admin configuration.
+- Refactored project and experience models.
+- Improved portfolio seeding pipeline.
+- Expanded and updated taxonomy, technologies, tags adn people datasets.
+- Updated seed portfolio management scripts.
+- Updated Django settings to support containerized deployment.
+- Updated root URL configuration.
+- Expanded and complete README with deployment and production.
+- Updated shared base template.
+- Improved navigation for the new CV section.
+
+### Removed
+- Removed deprecated experience image handling from project-related models.
+
+### Fixed
+- Fixed Python dependency definitions for develpment and production.
+
+---
 ## [0.4.0] - 2026-05-28
 ([commit dd9cce4](https://github.com/danilot390/Django_portfolio-AI/commit/dd9cce47d63f56bcb147b96076925309323e8f1c))
 

@@ -1,0 +1,40 @@
+<section class="">
+    <h2 class="text-xl font-semibold tracking-wide border-b ">
+      Projects
+    </h2>
+
+    {% for project in projects %}
+      <article class="pl-4 mb-2 text-sm">
+        <h3 class="font-semibold">
+          {{ project.title }}
+          {% if project.is_featured and project.github_url %}
+          | View on <a href="{{ project.github_url }}" class="text-blue-600 hover:underline">
+              GitHub
+            </a>
+          {% endif %}
+          {% if project.summary_url %}
+          | Review <a href="{{ project.summary_url }}" class="text-blue-600 hover:underline">
+              Summary
+            </a>
+          {% endif %}
+        </h3>
+
+        <p class="text-gray-500">
+          <strong class="text-gray-600"> 
+            Domains:
+          </strong>
+          {{ project.tags.all|join:", " }}
+        </p>
+
+        <p class="text-gray-500">
+          <strong class="text-gray-600"> 
+            Technologies:
+          </strong>
+          {{ project.technologies.all|join:", " }}
+        </p>
+
+        {% include 'cv/highlight.html' with highlights=project.project_highlights.all %}
+        
+      </article>
+    {% endfor %}
+  </section>

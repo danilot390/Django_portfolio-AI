@@ -12,9 +12,7 @@ defs:
   complexity: 3
 tags:
   - "ml"
-  - "xgboost"
   - "ensemble_learning"
-  - "linear_models"
 techs:
   - "python"
   - "sklearn"

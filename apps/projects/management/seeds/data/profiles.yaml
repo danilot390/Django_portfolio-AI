@@ -1,6 +1,9 @@
 profiles:
   - header: "AI Engineer | Machine Learning | Backend Systems"
     summary: |
+      Versatile Software Engineer and current MSc AI candidate with over 4 years of experience building scalable, production-grade web systems for government and university sectors. Combines robust backend engineering principles (Django, Laravel, PostgreSQL) with deep technical focus on end-to-end Machine Learning pipelines, MLOps (MLflow, Docker), and Explainable AI. 
+      Passionate about bridging the gap between intelligent data models and reliable, high-performance systems.
+    summary_2: |
       I am a mathematics enthusiast with a degree in Software Engineering, currently transitioning into Artificial Intelligence through an MSc in AI in Ireland. I bring over four years of experience, having built real-world web systems for government institutions, universities, and private clients, focusing on delivering scalable and reliable solutions. 
       
       My work combines software engineering expertise with AI, where I am building experience through projects involving end-to-end pipelines, from data preprocessing and model development to basic deployment and monitoring, following MLOps principles and engineering best practices.
@@ -20,10 +23,27 @@ profiles:
       
       My interest lies in backend engineering roles where systems intersect with intelligent data processing, particularly in environments where data insights and predictive capabilities can enhance  decision-making. I am continuing to strengthen my expertise in scalable backend  architectures while processing into AI-focused engineering work.
     active: true
+    cv_slug: 'danilo_AI_engineer_entry_level'
     education:
       - degree: "MSc in Artificial Intelligence"
         institution: "National College of Ireland"
         graduation: "Expected Jan 2027"
+        modules:
+          - name: "Engineering and Evaluating AI Systems"
+            order: 1
+          - name: "Intelligent Agents and Process Automation"
+            order: 2
+          - name: "Explainable and Emerging AI Technologies"
+            order: 3
+          - name: "Data Governance, Ethics and Sustainability"
+            order: 4
+        focus_areas:
+          - name: "Applied machine learning and data processing"
+            order: 1
+          - name: "Developing real-world AI solutions"
+            order: 2
+          - name: "Ethical and Sustainable systems deployment"
+            order: 3
       - degree: "BSc in Software Engineering"
         institution: "Universidad Autonoma Tomás Frías"
         graduation: "2021"
@@ -85,18 +105,25 @@ profiles:
             level: 3
             focus: 1
             order: 1
+      - group_name: "MLOps and DevOps Tools"
+        skills:
+          - name: "Docker, CI/CD Pipelines"
+            level: 3
+            focus: 1
+            order: 1
+          - name: "MLflow for model tracking and deployment"
+            level: 3
+            focus: 1
+            order: 2
+          - name: "Git and version control"
+            level: 4
+            focus: 1
+            order: 1
       - group_name: "Databases & Tools"
         skills:
           - name: "PostgreSQL, MySQL, SQLite"
             focus: 1
             order: 1
-          - name: "Git, Docker, CI/CD Pipelines"
-            focus: 1
-            order: 1
-          - name: "MLflow, Energy Tracking Tools"
-            level: 2
-            focus: 1
-            order: 2
     about_section :
       - title : 'Current Focus'
         content : |
@@ -115,6 +142,28 @@ profiles:
           I am currently continuing my transition into AI-focused engineering while strengthening my expertise in backendsystems and scalable software arcchitecture.
         order : 5
     interests:
+      - name: 'Green AI and Sustainable Machine Learning'
+        order: '1'
+      - name: 'Financial data analysis and predictive modeling'
+        order: '1'
+      - name: 'Explainable AI and interpretable models'
+        order: '1'
+      - name: 'Mathematics and problem-solving'
+        order: '2'
+      - name: 'Technical reading and research in AI'
+        order: '2'
+      - name: 'Human history'
+        order: '3'
+      - name: 'Philosophy'
+        order: '3'
+      - name: 'Reading'
+        order: '3'
+      - name: 'Gym and fitness'
+        order: '3'
+      - name: 'Drawing and art'
+        order: '3'
+      - name: 'Volunteering and community work'
+        order: '3'
       - name: 'Motorcyle travel'
         order: '3'
 

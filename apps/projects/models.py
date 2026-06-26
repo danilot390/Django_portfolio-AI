@@ -21,13 +21,13 @@ class Category(NamedModel):
     pass
 
 class PortfolioBase(models.Model):
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, max_length=255)
     
     short_description = models.TextField()
     description = models.TextField(blank=True)
     highlights = models.TextField(blank=True)
 
-    image = models.ImageField(upload_to='projects/', blank=True)
+    summary_url = models.URLField(blank=True)
 
     is_featured = models.BooleanField(default=False)
     is_published = models.BooleanField(default=False)
@@ -71,7 +71,7 @@ class Project(PortfolioBase):
     demo_url = models.URLField(blank=True)
 
     class Meta:
-        ordering = ['is_featured', '-order', '-created_at']
+        ordering = ['-is_featured', 'order']
 
     def __str__(self):
         return self.title

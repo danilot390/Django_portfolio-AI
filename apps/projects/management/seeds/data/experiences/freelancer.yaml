@@ -1,0 +1,38 @@
+slug: freelancer
+email_person: danilot390@gmail.com
+defs:
+  short_description: |
+    Worked as a freelance web developer on multiple projects using Laravel, Django, PostgreSQL, MySQL, Bootstrap, and other modern web technologies.
+  description: |
+    Delivered tailored web applications for diverse clients by managing the full software development lifecycle. Built robust backends using Laravel and Django, designed scalable databases with PostgreSQL and MySQL, and created responsive, user-friendly frontends using Bootstrap.
+  company: Entrepreneur
+  company_country: Bolivia
+  role: Freelance Web Developer
+  start_date: 2021-06-01
+  end_date: 2022-10-31
+  is_current: False
+  is_featured: False
+  is_published: False
+  order: 2
+tags:
+  - backend-engineering
+techs:
+  - laravel
+  - django
+  - postgresql
+  - mysql
+  - php
+  - python
+  - javascript
+highlights:
+  - title: Full-Stack Web Application Development
+    bullet_points:
+      - Designed and deployed dynamic web applications using Laravel and Django frameworks.
+      - Built responsive user interfaces with Bootstrap to ensure cross-device compatibility.
+      - Optimized database schemas in PostgreSQL and MySQL for faster query performance.
+      - Managed direct client communication to gather requirements and deliver projects on time.
+    impact: Streamlined business processes for clients and expanded digital presence.
+    categories:
+      - Engineering
+      - Usability
+      - Performance Efficiency

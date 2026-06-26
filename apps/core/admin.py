@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import (
     Person, Profile, Education,
+    EducationModule, EducationFocusArea, Language,
     ExpertiseGroup, Skill, SocialLink,
     AboutSection, Interest,
     )
@@ -42,13 +43,17 @@ class InterestInline(admin.TabularInline):
     min_num = 2
     extra = 0
 
+class LanguageInLine(admin.TabularInline):
+    model = Language
+    extra = 1
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'is_me')
     search_fields = ('name', 'email')
     list_filter = ('is_me',)
     ordering = ('name',)
-    inlines = [ProfileInline, SocialLinkInLine, ExperienceInLine]
+    inlines = [ProfileInline, SocialLinkInLine, ExperienceInLine, LanguageInLine]
+
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -56,11 +61,19 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ('person__name', 'header')
     inlines = [EducationInline, ExpertiseInline, AboutSectionInline, InterestInline]
 
+class EducationModuleInline(admin.TabularInline):
+    model = EducationModule
+    extra = 1
+
+class EducationFocusAreaInLine(admin.TabularInline):
+    model = EducationFocusArea
+    extra = 1
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('degree', 'institution', 'graduation')
     search_fields = ('degree', 'institution')
     ordering = ('-graduation',)
+    inlines = [EducationModuleInline, EducationFocusAreaInLine]
 
 @admin.register(ExpertiseGroup)
 class ExpertiseGroupAdmin(admin.ModelAdmin):
