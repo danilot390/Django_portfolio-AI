@@ -4,8 +4,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
-## [1.0.0] - 2026-06-24
+## [1.0.1] - 2026-06-27
 ([commit ]())
+
+### Added
+- Created railway.json for platform configuration.
+
+### Changed
+- Adjusted config/settings.py for environment variables.
+
+### Fixed
+- Update Django Dockerfile for production build.
+
+---
+## [1.0.0] - 2026-06-24
+([commit f7707a9](https://github.com/danilot390/Django_portfolio-AI/commit/f7707a9496c4c9f618105eef0b0743089d923736))
 
 ### Added
 - Implemented Docker Compose configuration and containerized deployment setup.
