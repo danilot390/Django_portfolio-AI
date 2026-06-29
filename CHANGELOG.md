@@ -4,8 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ---
+## [1.0.2] - 2026-06-29
+
+### Removed
+- Removed deprecated `railway.json` configuration file due to conflicts with Docker configuration.
+
+### Fixed 
+- Fixed railway port binding issue by using an entrypoint file.
+
+
+---
 ## [1.0.1] - 2026-06-27
-([commit ]())
+([commit fe766c3](https://github.com/danilot390/Django_portfolio-AI/commit/fe766c3e1a653548f0cde6f5693b7a8f16484e6c))
 
 ### Added
 - Created railway.json for platform configuration.

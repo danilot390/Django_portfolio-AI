@@ -1,7 +1,13 @@
-# !/bin/sh
+#!/bin/sh
+set -e
 
+echo "Running migrations..."
 python manage.py migrate
 
-python manage.py collectstatic --noinput 
+echo "Collecting static..."
+python manage.py collectstatic --noinput
 
-exec gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
+echo "Starting Gunicorn on port $PORT..."
+exec gunicorn config.wsgi:application \
+  --bind 0.0.0.0:$PORT \
+  --workers 3
